@@ -1,0 +1,24 @@
+.infoSection {
+    color: white;
+    background-color: var(--primary-color);
+
+    padding: 4rem;
+    width: 50%;
+    height: 100%;
+
+    overflow-x: auto;
+    scrollbar-width: 0;
+}
+
+.infoSection::-webkit-scrollbar{
+    width: 0;
+}
+
+.infoSection p,
+.infoSection li {
+    line-height: 2rem;
+}
+
+.infoSection h1 {
+    margin-bottom: 2rem;
+}

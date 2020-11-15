@@ -1,0 +1,9 @@
+.whatsappDemo {
+    min-width: 427px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow-y: hidden;
+}
+
