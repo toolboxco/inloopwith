@@ -5,7 +5,7 @@
 
 
 @media (max-width: 768px) {
-    .marvel-device.nexus5 {
+    .marvel-device.iphone-x {
       border-radius: 0;
       flex: none;
       padding: 0;
@@ -15,7 +15,7 @@
       width: 100%;
     }
   
-    .marvel-device > .screen .chat {
+    .marvel-device > .screen  {
       visibility: visible;
     }
   
@@ -23,8 +23,4 @@
       visibility: hidden;
     }
   
-    .marvel-device .status-bar {
-      display: none;
-    }
-
 }

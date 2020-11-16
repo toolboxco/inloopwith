@@ -7,7 +7,7 @@
     justify-content: space-between;
     align-items: center;
 
-    padding: 0.75rem 1rem;
+    padding: 0.75rem 1rem 0.5rem 1rem;
     font-weight: 500;
     font-size: 0.875rem;
 }
@@ -17,9 +17,52 @@
 }
 
 .icons svg {
-    fill: black; 
+    fill: black;
 }
 
 .icons svg:not(:last-child) {
     margin-right: 5px;
+}
+
+.waHeader {
+    display: flex;
+    align-items: center;
+    padding: 0.125rem 0.25rem;
+    -webkit-box-shadow: 0 4px 6px -6px rgb(131, 131, 131);
+    -moz-box-shadow: 0 4px 6px -6px rgb(131, 131, 131);
+    box-shadow: 0 4px 6px -6px rgb(131, 131, 131);
+}
+
+.waHeader svg {
+    fill: #007aff;
+}
+
+.waHeader svg:last-child {
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+.waHeader img {
+    width: 3rem;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    margin-left: 1rem;
+}
+
+.waHeader h2 {
+    margin: 0;
+}
+
+.waHeader sub {
+    color: grey;
+}
+
+@media (max-width: 768px) {
+    .whatsappUI {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
 }
