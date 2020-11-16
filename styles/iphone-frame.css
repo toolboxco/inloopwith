@@ -22,5 +22,8 @@
     .marvel-device {
       visibility: hidden;
     }
+    .marvel-device.iphone-x {
+      transform: translateY(0%);
+  }
   
 }

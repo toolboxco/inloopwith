@@ -1,5 +1,7 @@
 .whatsappUI {
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .statusBar {
@@ -31,6 +33,7 @@
     -webkit-box-shadow: 0 4px 6px -6px rgb(131, 131, 131);
     -moz-box-shadow: 0 4px 6px -6px rgb(131, 131, 131);
     box-shadow: 0 4px 6px -6px rgb(131, 131, 131);
+    z-index: 2;
 }
 
 .waHeader svg {
@@ -57,12 +60,18 @@
     color: grey;
 }
 
-@media (max-width: 768px) {
-    .whatsappUI {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-    }
+.input {
+    position: absolute;
+    bottom: 0;
+    padding: 1rem;
+    width: 100%;
+
+    color: gray;
+    text-align: center;
+    background-color: white;
 }
+
+.input span {
+    color: #007aff;
+}
+

@@ -4,6 +4,8 @@ body {
   margin: 0;
   font-family: "Anonymous Pro", monospace;
   overflow: hidden;
+  height: 100%
+
 }
 
 a {
@@ -18,4 +20,10 @@ a {
 
 :root {
   --primary-color: #021c19;
+}
+
+@media only screen and (max-width: 768px) {
+  html, body {
+    overflow-y: auto;
+  }
 }

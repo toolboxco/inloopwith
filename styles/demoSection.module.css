@@ -1,4 +1,4 @@
-.whatsappDemo {
+.demoSection {
     min-width: 427px;
     width: 50%;
     display: flex;
@@ -8,5 +8,11 @@
 
     font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Lucida Grande", "Segoe UI";
     font-size: 67.5%;
+}
 
+@media only screen and (max-width: 768px) {
+    .demoSection {
+        width: 100%;
+        min-width: auto;
+    }
 }

@@ -1,6 +1,6 @@
 import Head from 'next/head';
+import DemoSection from '../components/demo-section';
 import InfoSection from '../components/info-section';
-import WhatsappDemo from '../components/whatsapp-demo';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
@@ -20,7 +20,7 @@ export default function Home() {
             </Head>
 
             <main className={styles.main}>
-                <WhatsappDemo />
+                <DemoSection />
                 <InfoSection />
             </main>
         </>

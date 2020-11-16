@@ -5,9 +5,10 @@
     padding: 4rem;
     width: 50%;
     height: 100%;
-
-    overflow-x: auto;
+    
+    overflow-y: auto;
     scrollbar-width: 0;
+    /* display: none; */
 }
 
 .infoSection::-webkit-scrollbar{
@@ -21,4 +22,12 @@
 
 .infoSection h1 {
     margin-bottom: 2rem;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .infoSection {
+        width: 100%;
+        padding: 2rem;
+    }
 }
