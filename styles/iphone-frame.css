@@ -2,3 +2,29 @@
 .marvel-device.iphone-x {
     transform: translateY(5%);
 }
+
+
+@media (max-width: 768px) {
+    .marvel-device.nexus5 {
+      border-radius: 0;
+      flex: none;
+      padding: 0;
+      max-width: none;
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+    }
+  
+    .marvel-device > .screen .chat {
+      visibility: visible;
+    }
+  
+    .marvel-device {
+      visibility: hidden;
+    }
+  
+    .marvel-device .status-bar {
+      display: none;
+    }
+
+}

@@ -3,6 +3,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Anonymous Pro", monospace;
+  overflow: hidden;
 }
 
 a {
