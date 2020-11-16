@@ -1,0 +1,50 @@
+.chat {
+    background-image: url("/static/img/chat-bg.png");
+    background-size: cover;
+    background-position: center;
+
+    height: 80vh;
+    overflow-y: auto;
+    scrollbar-width: 0;
+}
+
+.chat::-webkit-scrollbar{
+    width: 0;
+}
+
+.message {
+    position: relative;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    padding: 0.5rem;
+    max-width: 80%;
+    background-color: white;
+    border-radius: 5px;
+    float: left;
+    margin: 0.5rem 1rem;
+    clear: both;
+}
+
+.message:last-child {
+    margin-bottom: 2rem;
+}
+
+.message::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0px 10px 10px 0;
+    border-color: transparent #fff transparent transparent;
+    bottom: 10px;
+    left: -10px;
+}
+
+.message span {
+    color: rgb(170, 170, 170);
+    float: right;
+    font-size: 0.75rem;
+    position: relative;
+    bottom: -4px;
+}

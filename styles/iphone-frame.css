@@ -2,3 +2,28 @@
 .marvel-device.iphone-x {
     transform: translateY(5%);
 }
+
+
+@media (max-width: 768px) {
+    .marvel-device.iphone-x {
+      border-radius: 0;
+      flex: none;
+      padding: 0;
+      max-width: none;
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+    }
+  
+    .marvel-device > .screen  {
+      visibility: visible;
+    }
+  
+    .marvel-device {
+      visibility: hidden;
+    }
+    .marvel-device.iphone-x {
+      transform: translateY(0%);
+  }
+  
+}
