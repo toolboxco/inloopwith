@@ -7,19 +7,6 @@ import PhoneIcon from '../../assets/phone.svg';
 import Chat from './chat';
 
 const WhatsappUI = () => {
-    const messages = [
-        'Dude, you grabed seven oranges and yelled "I GOT THE DRAGON BALLS!"',
-        'Dude, you grabed seven oranges and yelled "I GOT THE DRAGON BALLS!"',
-        'Dude, you grabed seven oranges and yelled "I GOT THE DRAGON BALLS!"',
-        'Dude, you grabed seven oranges and yelled "I GOT THE DRAGON BALLS!"',
-        'Dude, you grabed seven oranges and yelled "I GOT THE DRAGON BALLS!"',
-        'Dude, you grabed seven oranges and yelled "I GOT THE DRAGON BALLS!"',
-        'Dude, you grabed seven oranges and yelled "I GOT THE DRAGON BALLS!"',
-        'Dude, you grabed seven oranges and yelled "I GOT THE DRAGON BALLS!"',
-        'Dude, you grabed seven oranges and yelled "I GOT THE DRAGON BALLS!"',
-        'Dude, you grabed seven oranges and yelled "I GOT THE DRAGON BALLS!"',
-        'Dude, you grabed seven oranges and yelled "I GOT THE DRAGON BALLS!"',
-    ];
     return (
         <div className={styles.whatsappUI}>
             <div className={styles.statusBar}>
@@ -39,7 +26,8 @@ const WhatsappUI = () => {
                 </div>
                 <PhoneIcon />
             </div>
-            <Chat messages={messages}/>
+            <Chat     /* display: none; */
+/>
             <div className={styles.input}>
                 Only <span>admins</span> can send messages
             </div>
