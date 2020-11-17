@@ -6,6 +6,9 @@
     height: 80vh;
     overflow-y: auto;
     scrollbar-width: 0;
+
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 .chat::-webkit-scrollbar{
@@ -25,7 +28,7 @@
     clear: both;
 }
 
-.message:last-child {
+.message:first-child {
     margin-bottom: 2rem;
 }
 
