@@ -20,8 +20,8 @@ export default function Home() {
             </Head>
 
             <main className={styles.main}>
-                <DemoSection />
                 <InfoSection />
+                <DemoSection />
             </main>
         </>
     );
