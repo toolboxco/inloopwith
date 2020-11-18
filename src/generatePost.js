@@ -21,8 +21,8 @@ const generateWhatsappPost = (payload) => {
         contentHeader = hackerNewsContentHeader(humanDate);
     }
 
-    if(!payload.items.length) {
-        throw new Error('No items in payload')
+    if (!payload.items.length) {
+        throw new Error('No items in payload');
     }
 
     const contentBody = payload.items
@@ -44,7 +44,7 @@ const generateWhatsappPost = (payload) => {
     const whatsappPost = [contentHeader, contentBody, contentFooter].join(
         '\n\n',
     );
-
+    console.log(whatsappPost);
     return whatsappPost;
 };
 

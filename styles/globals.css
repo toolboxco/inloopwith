@@ -61,7 +61,12 @@ a {
   }
 }
 
-
+.infinite-scroll-component{
+  scrollbar-width: 0;
+}
+.infinite-scroll-component::-webkit-scrollbar {
+  width: 0;
+}
 
 
 @media only screen and (max-width: 768px) {

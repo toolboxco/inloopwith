@@ -3,10 +3,15 @@ import axios from 'axios';
 import generateWhatsappPost from '../../../src/generatePost';
 
 export default async (req, res) => {
+    if(req.method !== 'POST') {
+        return res.status(404)
+    }
+
     const API_KEY = req.headers['x-ilw-api-key'];
     if (INLOOPWITH_API_KEY !== API_KEY) {
         return res.status(401).send('Unauthorized');
     }
+    
     const payload = req.body;
     // console.log(payload);
 
@@ -24,7 +29,7 @@ export default async (req, res) => {
             const responseData = await saveDigestToJsonBox('ph', payload);
             res.json({ message: responseData.message || 'Digest added' });
 
-            sendWhatsappMessage(payload, 'sendText');
+            // sendWhatsappMessage(payload, 'sendText');
         } catch (error) {
             console.log(error);
         }
@@ -65,7 +70,7 @@ const sendWhatsappMessage = async (payload, path) => {
                 },
             },
         );
-        console.log(response.status);
+        console.log(response.status === 200 ? '[INFO] Message Sent': null);
     } catch (error) {
         console.log('[Error] Failed sending WA message', error);
     }

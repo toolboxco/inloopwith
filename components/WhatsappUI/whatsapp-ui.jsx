@@ -7,6 +7,10 @@ import PhoneIcon from '../../assets/phone.svg';
 import Chat from './chat';
 
 const WhatsappUI = () => {
+    // fetch('/api/digests/1')
+    //     .then((res) => res.json())
+    //     .then((data) => console.log(data));
+
     return (
         <div className={styles.whatsappUI}>
             <div className={styles.statusBar}>
@@ -26,8 +30,7 @@ const WhatsappUI = () => {
                 </div>
                 <PhoneIcon />
             </div>
-            <Chat     /* display: none; */
-/>
+            <Chat /* display: none; */ />
             <div className={styles.input}>
                 Only <span>admins</span> can send messages
             </div>
