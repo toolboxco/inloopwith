@@ -4,9 +4,10 @@ const { DIGESTS_ENDPOINT } = process.env;
 const PAGE_SIZE = 2;
 
 export default async (req, res) => {
-    if (req.method !== 'GET') {
-        return res.status(404);
-    }
+    console.log(DIGESTS_ENDPOINT)
+    // if (req.method !== 'GET') {
+    //     return res.status(404);
+    // }
 
     const { page } = req.query;
 
