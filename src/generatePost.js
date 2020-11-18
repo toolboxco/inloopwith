@@ -44,6 +44,7 @@ const generateWhatsappPost = (payload) => {
     const whatsappPost = [contentHeader, contentBody, contentFooter].join(
         '\n\n',
     );
+    console.log(whatsappPost)
     return whatsappPost;
 };
 

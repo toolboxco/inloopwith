@@ -14,5 +14,6 @@
     .demoSection {
         width: 100%;
         min-width: auto;
+        height: 100vh;
     }
 }
