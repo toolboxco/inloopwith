@@ -11,7 +11,7 @@
     flex-direction: column-reverse;
 }
 
-.chat::-webkit-scrollbar{
+.chat::-webkit-scrollbar {
     width: 0;
 }
 
@@ -26,10 +26,6 @@
     float: left;
     margin: 0.5rem 1rem;
     clear: both;
-}
-
-.message:first-child {
-    margin-bottom: 2rem;
 }
 
 .message::after {
@@ -50,4 +46,27 @@
     font-size: 0.75rem;
     position: relative;
     bottom: -4px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper:first-child {
+    margin-bottom: 2rem;
+}
+
+.dayTitle {
+    align-self: center;
+    width: 3rem;
+    padding: 0.25rem 0;
+    margin: 0.5rem 0;
+
+    font-weight: 500;
+    text-align: center;
+
+    color: white;
+    background-color: #007aff;
+    border-radius: 5px;
 }

@@ -26,8 +26,7 @@ const WhatsappUI = () => {
                 </div>
                 <PhoneIcon />
             </div>
-            <Chat     /* display: none; */
-/>
+            <Chat /* display: none; */ />
             <div className={styles.input}>
                 Only <span>admins</span> can send messages
             </div>

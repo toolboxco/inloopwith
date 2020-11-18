@@ -1,40 +1,53 @@
 import { useState, useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import generateWhatsappPost from '../../src/generatePost';
+import Markdown from 'markdown-to-jsx';
+import dayjs from 'dayjs';
+import isToday from 'dayjs/plugin/isToday';
+import isYesterday from 'dayjs/plugin/isYesterday';
+import localizedFormat from 'dayjs/plugin/localizedFormat';
+dayjs.extend(localizedFormat);
+dayjs.extend(isToday);
+dayjs.extend(isYesterday);
 
 import styles from '../../styles/chat.module.css';
 
+const boldRegex = /\*(.*?)\*/g;
+const listRegex = /(?<=\d)\.\s/gm;
+
 const Chat = () => {
-    const [itemsList, setItemsList] = useState([]);
+    const [messageList, setMessageList] = useState([]);
     const [hasMore, setHasMore] = useState(true);
     const [page, setPage] = useState(0);
     const fetchData = async (pageNumber) => {
-        const response = await fetch(
-            `https://jsonbox.io/box_2db4e044aaebfee9e161/posts?skip=${
-                5 * pageNumber
-            }&limit=${5}`,
-        );
+        const response = await fetch(`/api/digests/${pageNumber}`);
         const data = response.json();
         return data;
     };
-    const fetchMoreData = () => {
-        fetchData(page).then((data) => {
-            setItemsList([...itemsList].concat(data));
-            setPage((page) => page + 1);
-            if (!data.length) {
-                setHasMore(false);
-            }
-            console.log(itemsList);
-        });
-    };
+    const fetchMoreDataAndParse = () => {
+        fetchData(page)
+            .then((data) => {
+                const messages = data.digests.map((digest) => ({
+                    post: generateWhatsappPost(digest),
+                    time: dayjs(new Date(digest.feed_date)),
+                }));
 
+                setMessageList([...messageList].concat(messages));
+                setPage((page) => page + 1);
+                if (!data.digests.length) {
+                    setHasMore(false);
+                }
+            })
+            .catch((e) => console.log(e));
+    };
     useEffect(() => {
-        fetchMoreData();
+        fetchMoreDataAndParse();
     }, []);
     return (
         <div className={styles.chat} id="scrollableDiv">
             <InfiniteScroll
-                dataLength={itemsList.length}
-                next={fetchMoreData}
+                dataLength={messageList.length}
+                next={fetchMoreDataAndParse}
                 style={{ display: 'flex', flexDirection: 'column-reverse' }} //To put endMessage and loader to the top.
                 inverse={true}
                 hasMore={hasMore}
@@ -48,12 +61,33 @@ const Chat = () => {
                 }
                 scrollableTarget="scrollableDiv"
             >
-                {itemsList.map((item, index) => (
-                    <div className={styles.message} key={index}>
-                        {item.body}
-                        <span>4.21 AM</span>
-                    </div>
-                ))}
+                {messageList.map((message, index) => {
+                    const nextDate = messageList[index + 1]?.time;
+                    return (
+                        <div className={styles.wrapper} key={index}>
+                            {!nextDate?.isSame(message.time) && (
+                                <div className={styles.dayTitle}>
+                                    {message.time.isToday()
+                                        ? 'Today'
+                                        : message.time.isYesterday()
+                                        ? 'Yesterday'
+                                        : message.time.format(' DD MMM')}
+                                </div>
+                            )}
+                            <div className={styles.message}>
+                                <Markdown>
+                                    {message.post
+                                        .replace(
+                                            boldRegex,
+                                            '<strong>$1</strong>',
+                                        )
+                                        .replace(listRegex, `\\.&nbsp;`)}
+                                </Markdown>
+                                <span>{message.time.format('LT')}</span>
+                            </div>
+                        </div>
+                    );
+                })}
             </InfiniteScroll>
         </div>
     );
