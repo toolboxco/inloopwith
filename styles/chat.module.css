@@ -28,10 +28,6 @@
     clear: both;
 }
 
-.message:first-child {
-    margin-bottom: 2rem;
-}
-
 .message::after {
     position: absolute;
     content: "";
@@ -52,6 +48,15 @@
     bottom: -4px;
 }
 
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper:first-child {
+    margin-bottom: 2rem;
+}
+
 .dayTitle {
     align-self: center;
     width: 3rem;
@@ -60,7 +65,7 @@
 
     font-weight: 500;
     text-align: center;
-    
+
     color: white;
     background-color: #007aff;
     border-radius: 5px;

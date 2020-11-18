@@ -25,8 +25,8 @@ const Chat = () => {
         return data;
     };
     const fetchMoreDataAndParse = () => {
-        try {
-            fetchData(page).then((data) => {
+        fetchData(page)
+            .then((data) => {
                 const messages = data.digests.map((digest) => ({
                     post: generateWhatsappPost(digest),
                     time: dayjs(new Date(digest.feed_date)),
@@ -37,10 +37,8 @@ const Chat = () => {
                 if (!data.digests.length) {
                     setHasMore(false);
                 }
-            });
-        } catch (error) {
-            console.log(error);
-        }
+            })
+            .catch((e) => console.log(e));
     };
     useEffect(() => {
         fetchMoreDataAndParse();
@@ -66,8 +64,17 @@ const Chat = () => {
                 {messageList.map((message, index) => {
                     const nextDate = messageList[index + 1]?.time;
                     return (
-                        <>
-                            <div className={styles.message} key={index}>
+                        <div className={styles.wrapper} key={index}>
+                            {!nextDate?.isSame(message.time) && (
+                                <div className={styles.dayTitle}>
+                                    {message.time.isToday()
+                                        ? 'Today'
+                                        : message.time.isYesterday()
+                                        ? 'Yesterday'
+                                        : message.time.format(' DD MMM')}
+                                </div>
+                            )}
+                            <div className={styles.message}>
                                 <Markdown>
                                     {message.post
                                         .replace(
@@ -78,16 +85,7 @@ const Chat = () => {
                                 </Markdown>
                                 <span>{message.time.format('LT')}</span>
                             </div>
-                            {!nextDate?.isSame(message.time) && (
-                                <div className={styles.dayTitle}>
-                                    {message.time.isToday()
-                                        ? 'Today'
-                                        : message.time.isYesterday()
-                                        ? 'Yesterday'
-                                        : message.time.format(' DD MMM')}
-                                </div>
-                            )}
-                        </>
+                        </div>
                     );
                 })}
             </InfiniteScroll>
