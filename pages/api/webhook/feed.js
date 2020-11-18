@@ -1,5 +1,6 @@
-const { INLOOPWITH_API_KEY, DIGESTS_ENDPOINT } = process.env;
+const { INLOOPWITH_API_KEY, DIGESTS_ENDPOINT, WA_URL } = process.env;
 import axios from 'axios';
+import generateWhatsappPost from '../../../src/generatePost';
 
 export default async (req, res) => {
     const API_KEY = req.headers['x-ilw-api-key'];
@@ -7,7 +8,7 @@ export default async (req, res) => {
         return res.status(401).send('Unauthorized');
     }
     const payload = req.body;
-    console.log(payload);
+    // console.log(payload);
 
     if (JSON.stringify(payload) === '{}') {
         return res.status(400).send({ error: 'Missing body' });
@@ -21,7 +22,9 @@ export default async (req, res) => {
     if (payload.tag === 'product_hunt') {
         try {
             const responseData = await saveDigestToJsonBox('ph', payload);
-            return res.json({ message: responseData.message || 'Digest added' });
+            res.json({ message: responseData.message || 'Digest added' });
+
+            sendWhatsappMessage(payload, 'sendText');
         } catch (error) {
             console.log(error);
         }
@@ -30,7 +33,9 @@ export default async (req, res) => {
     if (payload.tag === 'hacker_news') {
         try {
             const responseData = await saveDigestToJsonBox('hn', payload);
-            return res.json({ message: responseData.message || 'Digest added' });
+            res.json({ message: responseData.message || 'Digest added' });
+
+            sendWhatsappMessage(payload, 'sendText');
         } catch (error) {
             console.log(error);
         }
@@ -44,4 +49,24 @@ const saveDigestToJsonBox = async (category, payload) => {
         data: payload,
     });
     return response.data;
+};
+
+const sendWhatsappMessage = async (payload, path) => {
+    try {
+        const message = generateWhatsappPost(payload);
+        const response = await axios.post(
+            `${WA_URL}/${path}`,
+            {
+                body: message,
+            },
+            {
+                headers: {
+                    'x-ilw-api-key': INLOOPWITH_API_KEY,
+                },
+            },
+        );
+        console.log(response.status);
+    } catch (error) {
+        console.log('[Error] Failed sending WA message', error);
+    }
 };
