@@ -5,7 +5,7 @@ const PAGE_SIZE = 2;
 
 export default async (req, res) => {
     if (req.method !== 'GET') {
-        return res.status(404);
+        return res.status(404).send('Not found');
     }
 
     const { page } = req.query;
