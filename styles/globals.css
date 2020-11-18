@@ -62,7 +62,7 @@ a {
 }
 
 .infinite-scroll-component{
-  scrollbar-width: 0;
+  scrollbar-width: none;
 }
 .infinite-scroll-component::-webkit-scrollbar {
   width: 0;

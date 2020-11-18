@@ -5,7 +5,7 @@
 
     height: 80vh;
     overflow-y: auto;
-    scrollbar-width: 0;
+    scrollbar-width: none;
 
     display: flex;
     flex-direction: column-reverse;
