@@ -1,5 +1,6 @@
 const { INLOOPWITH_API_KEY, DIGESTS_ENDPOINT } = process.env;
 import axios from 'axios';
+import dayjs from 'dayjs';
 
 export default async (req, res) => {
     const API_KEY = req.headers['x-ilw-api-key'];
@@ -7,14 +8,16 @@ export default async (req, res) => {
         return res.status(401).send('Unauthorized');
     }
     const payload = req.body;
+    console.log(payload);
 
-    if (!payload) {
-        return res.status(400).send('Missing body');
+    if (JSON.stringify(payload) === '{}') {
+        return res.status(400).send({ error: 'Missing body' });
     }
 
     if (!payload.tag) {
-        return res.status(400).send('Missing tag');
+        return res.status(400).send({ error: 'Missing tag' });
     }
+
     console.log(payload, payload.tag);
 
     // store this payload to jsonbox accordingly
@@ -22,7 +25,7 @@ export default async (req, res) => {
         try {
             const responseData = await saveDigestToJsonBox('ph', payload);
             console.log(responseData);
-            return res.json({ saved_digest: responseData });
+            return res.json({ message: 'Digest added' });
         } catch (error) {
             console.log(error);
         }
@@ -32,7 +35,7 @@ export default async (req, res) => {
         try {
             const responseData = await saveDigestToJsonBox('hn', payload);
             console.log(responseData);
-            return res.json({ saved_digest: responseData });
+            return res.json({ message: 'Digest added' });
         } catch (error) {
             console.log(error);
         }
