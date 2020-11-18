@@ -3,8 +3,12 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import generateWhatsappPost from '../../src/generatePost';
 import Markdown from 'markdown-to-jsx';
 import dayjs from 'dayjs';
+import isToday from 'dayjs/plugin/isToday';
+import isYesterday from 'dayjs/plugin/isYesterday';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 dayjs.extend(localizedFormat);
+dayjs.extend(isToday);
+dayjs.extend(isYesterday);
 
 import styles from '../../styles/chat.module.css';
 
@@ -59,16 +63,33 @@ const Chat = () => {
                 }
                 scrollableTarget="scrollableDiv"
             >
-                {messageList.map((message, index) => (
-                    <div className={styles.message} key={index}>
-                        <Markdown>
-                            {message.post
-                                .replace(boldRegex, '<strong>$1</strong>')
-                                .replace(listRegex, `\\.&nbsp;`)}
-                        </Markdown>
-                        <span>{message.time.format('LT')}</span>
-                    </div>
-                ))}
+                {messageList.map((message, index) => {
+                    const nextDate = messageList[index + 1]?.time;
+                    return (
+                        <>
+                            <div className={styles.message} key={index}>
+                                <Markdown>
+                                    {message.post
+                                        .replace(
+                                            boldRegex,
+                                            '<strong>$1</strong>',
+                                        )
+                                        .replace(listRegex, `\\.&nbsp;`)}
+                                </Markdown>
+                                <span>{message.time.format('LT')}</span>
+                            </div>
+                            {!nextDate?.isSame(message.time) && (
+                                <div className={styles.dayTitle}>
+                                    {message.time.isToday()
+                                        ? 'Today'
+                                        : message.time.isYesterday()
+                                        ? 'Yesterday'
+                                        : message.time.format(' DD MMM')}
+                                </div>
+                            )}
+                        </>
+                    );
+                })}
             </InfiniteScroll>
         </div>
     );

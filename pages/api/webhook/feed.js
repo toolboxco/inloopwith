@@ -29,7 +29,7 @@ export default async (req, res) => {
             const responseData = await saveDigestToJsonBox('ph', payload);
             res.json({ message: responseData.message || 'Digest added' });
 
-            // sendWhatsappMessage(payload, 'sendText');
+            sendWhatsappMessage(payload, 'sendText');
         } catch (error) {
             console.log(error);
         }
