@@ -81,7 +81,9 @@ const Chat = () => {
                                             boldRegex,
                                             '<strong>$1</strong>',
                                         )
-                                        .replace(listRegex, `\\.&nbsp;`).replace(/_fin_/g, '_fin_<br/>')}
+                                        .replace(listRegex, `\\.&nbsp;`)
+                                        .replace(/_fin_/g, '_fin_<br/>')
+                                        .replace( /(?<!<br\>)👍/gm, '\n👍')}
                                 </Markdown>
                                 <span>{message.time.format('LT')}</span>
                             </div>
