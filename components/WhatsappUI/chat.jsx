@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import generateWhatsappPost from '../../src/generatePost';
 import Markdown from 'markdown-to-jsx';
 import dayjs from 'dayjs';
 import isToday from 'dayjs/plugin/isToday';
 import isYesterday from 'dayjs/plugin/isYesterday';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
+import generateWhatsappPost from '../../src/generatePost';
+
+import styles from '../../styles/chat.module.css';
+
 dayjs.extend(localizedFormat);
 dayjs.extend(isToday);
 dayjs.extend(isYesterday);
-
-import styles from '../../styles/chat.module.css';
 
 const boldRegex = /\*(.*?)\*/g;
 const listRegex = /(?<=\d)\.\s/gm;
@@ -48,15 +49,15 @@ const Chat = () => {
             <InfiniteScroll
                 dataLength={messageList.length}
                 next={fetchMoreDataAndParse}
-                style={{ display: 'flex', flexDirection: 'column-reverse' }} //To put endMessage and loader to the top.
-                inverse={true}
+                style={{ display: 'flex', flexDirection: 'column-reverse' }} // To put endMessage and loader to the top.
+                inverse
                 hasMore={hasMore}
                 loader={
                     <div className="lds-ring">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                        <div />
+                        <div />
+                        <div />
+                        <div />
                     </div>
                 }
                 scrollableTarget="scrollableDiv"
@@ -83,7 +84,7 @@ const Chat = () => {
                                         )
                                         .replace(listRegex, `\\.&nbsp;`)
                                         .replace(/_fin_/g, '_fin_<br/>')
-                                        .replace( /(?<!<br\>)👍/gm, '\n👍')}
+                                        .replace(/(?<!<br\>)👍/gm, '\n👍')}
                                 </Markdown>
                                 <span>{message.time.format('LT')}</span>
                             </div>
