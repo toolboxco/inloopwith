@@ -1,6 +1,36 @@
-const { INLOOPWITH_API_KEY, DIGESTS_ENDPOINT, WA_URL } = process.env;
 import axios from 'axios';
 import generateWhatsappPost from '../../../src/generatePost';
+
+const { INLOOPWITH_API_KEY, DIGESTS_ENDPOINT, WA_URL } = process.env;
+
+const saveDigestToJsonBox = async (category, payload) => {
+    const response = await axios({
+        method: 'post',
+        url: `${DIGESTS_ENDPOINT}/${category}`,
+        data: payload,
+    });
+    return response.data;
+};
+
+const sendWhatsappMessage = async (payload, path) => {
+    try {
+        const message = generateWhatsappPost(payload);
+        const response = await axios.post(
+            `${WA_URL}/${path}`,
+            {
+                body: message,
+            },
+            {
+                headers: {
+                    'x-ilw-api-key': INLOOPWITH_API_KEY,
+                },
+            },
+        );
+        console.log(response.status === 200 ? '[INFO] Message Sent' : null);
+    } catch (error) {
+        console.log('[Error] Failed sending WA message', error);
+    }
+};
 
 export default async (req, res) => {
     if (req.method !== 'POST') {
@@ -29,7 +59,8 @@ export default async (req, res) => {
             const responseData = await saveDigestToJsonBox('ph', payload);
             res.json({ message: responseData.message || 'Digest added' });
 
-            sendWhatsappMessage(payload, 'sendText');
+            // [TODO] bring it back up
+            // sendWhatsappMessage(payload, 'sendText');
         } catch (error) {
             console.log(error);
         }
@@ -39,39 +70,10 @@ export default async (req, res) => {
         try {
             const responseData = await saveDigestToJsonBox('hn', payload);
             res.json({ message: responseData.message || 'Digest added' });
-
-            sendWhatsappMessage(payload, 'sendText');
+            // [TODO] bring it back up
+            // sendWhatsappMessage(payload, 'sendText');
         } catch (error) {
             console.log(error);
         }
-    }
-};
-
-const saveDigestToJsonBox = async (category, payload) => {
-    const response = await axios({
-        method: 'post',
-        url: `${DIGESTS_ENDPOINT}/${category}`,
-        data: payload,
-    });
-    return response.data;
-};
-
-const sendWhatsappMessage = async (payload, path) => {
-    try {
-        const message = generateWhatsappPost(payload);
-        const response = await axios.post(
-            `${WA_URL}/${path}`,
-            {
-                body: message,
-            },
-            {
-                headers: {
-                    'x-ilw-api-key': INLOOPWITH_API_KEY,
-                },
-            },
-        );
-        console.log(response.status === 200 ? '[INFO] Message Sent' : null);
-    } catch (error) {
-        console.log('[Error] Failed sending WA message', error);
     }
 };

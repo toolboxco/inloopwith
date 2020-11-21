@@ -303,10 +303,10 @@
   background: radial-gradient(circle at bottom right, transparent 0, transparent 70%, #000 70%, #000 100%);
   right: -8px;
 }
-.marvel-device.iphone-x {
+/* .marvel-device.iphone-x {
   transform: translateY(5%);
   max-height: 98vh;
-}
+} */
 
 @media (max-width: 1024px) {
   .marvel-device.iphone-x {
@@ -325,8 +325,5 @@
 
   .marvel-device {
     visibility: hidden;
-  }
-  .marvel-device.iphone-x {
-    transform: translateY(0%);
   }
 }
