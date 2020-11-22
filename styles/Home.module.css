@@ -1,6 +1,7 @@
 .main {
   height: 100vh;
   display: flex;
+  background: url(/static/img/chat-bg.png);
   /* flex-wrap: wrap; */
 }
 

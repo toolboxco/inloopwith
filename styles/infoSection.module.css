@@ -1,11 +1,12 @@
 .infoSection {
-    color: white;
-    background-color: var(--primary-color);
+    color:#fffffff2;
+    background-color: #536b6a;
+    text-shadow: 0 0 black;
 
     padding: 4rem;
     width: 50%;
     height: 100%;
-    
+
     overflow-y: auto;
     scrollbar-width: none;
 }
