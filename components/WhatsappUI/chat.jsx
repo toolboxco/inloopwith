@@ -1,13 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Markdown from 'markdown-to-jsx';
 import dayjs from 'dayjs';
 import isToday from 'dayjs/plugin/isToday';
 import isYesterday from 'dayjs/plugin/isYesterday';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
-import generateWhatsappPost from '../../src/generatePost';
 
+import generateWhatsappPost from '../../src/generatePost';
 import styles from '../../styles/chat.module.css';
+import dayParser from '../../src/utils/dayParser';
 
 dayjs.extend(localizedFormat);
 dayjs.extend(isToday);
@@ -20,6 +21,8 @@ const Chat = () => {
     const [messageList, setMessageList] = useState([]);
     const [hasMore, setHasMore] = useState(true);
     const [page, setPage] = useState(0);
+    const todayTitleRef = useRef(null);
+
     const fetchData = async (pageNumber) => {
         const response = await fetch(`/api/digests/${pageNumber}`);
         const data = response.json();
@@ -44,6 +47,16 @@ const Chat = () => {
     useEffect(() => {
         fetchMoreDataAndParse();
     }, []);
+
+    useEffect(() => {
+        if (todayTitleRef.current) {
+            todayTitleRef.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+            });
+        }
+    }, [todayTitleRef.current]);
+
     return (
         <div className={styles.chat} id="scrollableDiv">
             <InfiniteScroll
@@ -67,12 +80,15 @@ const Chat = () => {
                     return (
                         <div className={styles.wrapper} key={index}>
                             {!nextDate?.isSame(message.time) && (
-                                <div className={styles.dayTitle}>
-                                    {message.time.isToday()
-                                        ? 'Today'
-                                        : message.time.isYesterday()
-                                        ? 'Yesterday'
-                                        : message.time.format(' DD MMM')}
+                                <div
+                                    className={styles.dayTitle}
+                                    ref={
+                                        message.time.isToday()
+                                            ? todayTitleRef
+                                            : null
+                                    }
+                                >
+                                    {dayParser(message.time)}
                                 </div>
                             )}
                             <div className={styles.message}>
