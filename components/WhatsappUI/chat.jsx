@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import Markdown from 'markdown-to-jsx';
 import dayjs from 'dayjs';
 import isToday from 'dayjs/plugin/isToday';
 import isYesterday from 'dayjs/plugin/isYesterday';
@@ -9,13 +8,11 @@ import localizedFormat from 'dayjs/plugin/localizedFormat';
 import generateWhatsappPost from '../../src/generatePost';
 import styles from '../../styles/chat.module.css';
 import dayParser from '../../src/utils/dayParser';
+import Message from './message';
 
 dayjs.extend(localizedFormat);
 dayjs.extend(isToday);
 dayjs.extend(isYesterday);
-
-const boldRegex = /\*(.*?)\*/g;
-const listRegex = /(?<=\d)\.\s/gm;
 
 const Chat = () => {
     const [messageList, setMessageList] = useState([]);
@@ -34,6 +31,19 @@ const Chat = () => {
                 const messages = data.digests.map((digest) => ({
                     post: generateWhatsappPost(digest),
                     time: dayjs(new Date(digest.feed_date)),
+                    linkPreviewData: {
+                        img: digest.items[0].image || null,
+                        header: `${
+                            digest.items[0].name !== undefined
+                                ? digest.items[0].name + ' -'
+                                : ' '
+                        } ${digest.items[0].title} | ${digest.tag
+                            .split('_')
+                            .join(' ')}`,
+                        link:
+                            digest.items[0].short_link ||
+                            digest.items[0].original_link,
+                    },
                 }));
 
                 setMessageList([...messageList].concat(messages));
@@ -91,19 +101,7 @@ const Chat = () => {
                                     {dayParser(message.time)}
                                 </div>
                             )}
-                            <div className={styles.message}>
-                                <Markdown>
-                                    {message.post
-                                        .replace(
-                                            boldRegex,
-                                            '<strong>$1</strong>',
-                                        )
-                                        .replace(listRegex, `\\.&nbsp;`)
-                                        .replace(/_fin_/g, '_fin_<br/>')
-                                        .replace(/(?<!<br\>)👍/gm, '\n👍')}
-                                </Markdown>
-                                <span>{message.time.format('LT')}</span>
-                            </div>
+                            <Message message={message} />
                         </div>
                     );
                 })}
