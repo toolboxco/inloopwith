@@ -6,7 +6,7 @@ import isYesterday from 'dayjs/plugin/isYesterday';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 
 import generateWhatsappPost from '../../src/generatePost';
-import styles from '../../styles/chat.module.css';
+import styles from '../../styles/chat.module.scss';
 import dayParser from '../../src/utils/dayParser';
 import Message from './message';
 

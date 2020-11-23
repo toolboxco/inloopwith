@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import DemoSection from '../components/demo-section';
 import InfoSection from '../components/info-section';
-import styles from '../styles/Home.module.css';
+import styles from '../styles/Home.module.scss';
 
 export default function Home() {
     return (

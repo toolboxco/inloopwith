@@ -1,5 +1,5 @@
-import '../styles/globals.css';
-import '../styles/iphone-frame.css';
+import '../styles/globals.scss';
+import '../styles/iphone-frame.scss';
 
 function MyApp({ Component, pageProps }) {
     return <Component {...pageProps} />;
