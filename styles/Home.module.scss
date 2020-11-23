@@ -4,7 +4,39 @@
     margin: 0 auto;
     padding: 1rem;
     max-width: 1400px;
-    /* flex-wrap: wrap; */
+}
+
+.nav {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+    padding: 2rem 5rem;
+
+    .brandTitle {
+        font-weight: 700;
+    }
+
+    button {
+        background-color: black;
+
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 0.5rem 0.75rem;
+
+        a {
+            color: white;
+            font-weight: 700;
+        }
+
+        &:hover {
+            background-color: white;
+            a {
+                color: black;
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 768px) {

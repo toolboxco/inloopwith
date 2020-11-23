@@ -1,7 +1,8 @@
 .infoSection {
     color: #4b4b4b;
 
-    padding: 4rem;
+    padding: 3rem 4rem;
+    margin: 1rem 0;
     width: 60%;
     height: 100%;
 
@@ -28,7 +29,7 @@
     font-family: 'Poppins';
 
     border-radius: 10px;
-    border: none;
+    border: 1px solid #d8274c;
     margin: 1rem 0;
 
     a {
@@ -36,6 +37,13 @@
         color: white;
         font-size: 1rem;
         font-weight: 700;
+    }
+
+    &:hover {
+        background-color: white;
+        a {
+            color: #d8274c;
+        }
     }
 }
 

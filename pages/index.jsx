@@ -20,6 +20,19 @@ export default function Home() {
                 ></link>
             </Head>
             <header>
+                <nav className={styles.nav}>
+                    <span className={styles.brandTitle}>In loop with</span>
+                    <button>
+                        <strong>
+                            <a
+                                {...{
+                                    href:
+                                        'https://chat.whatsapp.com/FLb2EM3MZqbJeZpOuhxluX',
+                                }}
+                            >{`  Join Now`}</a>
+                        </strong>
+                    </button>
+                </nav>
                 <Heading />
             </header>
             <main className={styles.main}>
