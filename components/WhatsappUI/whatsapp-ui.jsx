@@ -1,4 +1,4 @@
-import styles from '../../styles/whatsappUI.module.css';
+import styles from '../../styles/whatsappUI.module.scss';
 import NetworkIcon from '../../assets/network.svg';
 import WifiIcon from '../../assets/wifi.svg';
 import BatteryIcon from '../../assets/battery.svg';

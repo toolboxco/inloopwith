@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Markdown from 'markdown-to-jsx';
 
-import styles from '../../styles/message.module.css';
+import styles from '../../styles/message.module.scss';
 
 const boldRegex = /\*(.*?)\*/g;
 const listRegex = /(?<=\d)\.\s/gm;

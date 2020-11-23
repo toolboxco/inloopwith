@@ -1,0 +1,74 @@
+.whatsappUI {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .statusBar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: 0.75rem 1rem 0.5rem 1rem;
+        font-weight: 500;
+        font-size: 0.875rem;
+    }
+}
+
+.time {
+    margin-left: 0.5rem;
+}
+
+.icons {
+    svg {
+        fill: black;
+    }
+
+    svg:not(:last-child) {
+        margin-right: 5px;
+    }
+}
+
+.waHeader {
+    display: flex;
+    align-items: center;
+    padding: 0.125rem 0.25rem;
+    -webkit-box-shadow: 0 4px 6px -6px rgb(131, 131, 131);
+    -moz-box-shadow: 0 4px 6px -6px rgb(131, 131, 131);
+    box-shadow: 0 4px 6px -6px rgb(131, 131, 131);
+    z-index: 2;
+
+    svg {
+        fill: #007aff;
+    }
+    svg:last-child {
+        margin-left: auto;
+        margin-right: 1rem;
+    }
+    img {
+        width: 3rem;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+        margin-left: 1rem;
+    }
+    h2 {
+        margin: 0;
+    }
+    sub {
+        color: grey;
+    }
+}
+
+.input {
+    position: absolute;
+    bottom: 0;
+    padding: 1rem;
+    width: 100%;
+
+    color: gray;
+    text-align: center;
+    background-color: white;
+
+    span {
+        color: #007aff;
+    }
+}
