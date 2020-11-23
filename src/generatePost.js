@@ -17,7 +17,7 @@ const generateWhatsappPost = (payload) => {
     if (payload.tag === 'product_hunt') {
         contentHeader = productHuntContentHeader(humanDate);
     }
-    if (payload.tag == 'hacker_news') {
+    if (payload.tag === 'hacker_news') {
         contentHeader = hackerNewsContentHeader(humanDate);
     }
 

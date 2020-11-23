@@ -9,7 +9,8 @@ const dayParser = (dayjsDate) => {
 
     if (dayjs().isoWeek() === dayjsDate.isoWeek()) {
         return dayjsDate.format('dddd');
-    } else return dayjsDate.format('DD/MM/YYYY');
+    }
+    return dayjsDate.format('DD/MM/YYYY');
 };
 
 export default dayParser;
