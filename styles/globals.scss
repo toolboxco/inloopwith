@@ -1,7 +1,8 @@
 html,
 body {
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
+
     font-family: 'Poppins', sans-serif;
 }
 
@@ -18,10 +19,17 @@ h2,
 h3,
 strong {
     color: #111111;
+    margin: 0.5rem 0;
 }
 
 button a {
     text-decoration: none;
+}
+
+// ------Colors-------
+
+:root {
+    --theme-red: #d8274c;
 }
 
 /* Loading Ring */

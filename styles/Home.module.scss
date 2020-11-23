@@ -3,11 +3,12 @@
     justify-content: center;
     margin: 0 auto;
     padding: 1rem;
-    max-width: 1400px;
+    max-width: 1440px;
 }
 
 .nav {
-    max-width: 1400px;
+    max-width: 1440px;
+
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -36,6 +37,16 @@
                 color: black;
             }
         }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .nav {
+        padding: 2rem;
+    }
+    .main {
+        height: auto;
+        flex-direction: column;
     }
 }
 

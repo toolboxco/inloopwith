@@ -2,6 +2,7 @@ import Head from 'next/head';
 import DemoSection from '../components/demo-section';
 import Heading from '../components/heading';
 import InfoSection from '../components/info-section';
+import Testimonials from '../components/Testimonials/testimonials-section';
 import styles from '../styles/Home.module.scss';
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
                     rel="stylesheet"
                 ></link>
             </Head>
+
             <header>
                 <nav className={styles.nav}>
                     <span className={styles.brandTitle}>In loop with</span>
@@ -35,10 +37,13 @@ export default function Home() {
                 </nav>
                 <Heading />
             </header>
+
             <main className={styles.main}>
                 <InfoSection />
                 <DemoSection />
             </main>
+
+            <Testimonials/>
         </>
     );
 }
