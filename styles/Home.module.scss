@@ -1,13 +1,15 @@
 .main {
-  height: 100vh;
-  display: flex;
-  background: url(/static/img/chat-bg.png);
-  /* flex-wrap: wrap; */
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 1rem;
+    max-width: 1400px;
+    /* flex-wrap: wrap; */
 }
 
 @media only screen and (max-width: 768px) {
-  .main {
-    height: auto;
-    flex-direction: column;
-  }
+    .main {
+        height: auto;
+        flex-direction: column;
+    }
 }

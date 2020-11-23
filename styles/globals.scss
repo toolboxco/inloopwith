@@ -2,9 +2,7 @@ html,
 body {
     padding: 0;
     margin: 0;
-    font-family: 'Anonymous Pro', monospace;
-    overflow: hidden;
-    height: 100%;
+    font-family: 'Poppins', sans-serif;
 }
 
 a {
@@ -15,11 +13,10 @@ a {
     box-sizing: border-box;
 }
 
-/* Colors */
-
-:root {
-    --primary-color: #081821;
+h1, h2, h3, strong {
+    color: #111111;
 }
+
 
 /* Loading Ring */
 .lds-ring {
@@ -48,7 +45,7 @@ a {
         &:nth-child(2) {
             animation-delay: -0.3s;
         }
-        
+
         &:nth-child(3) {
             animation-delay: -0.15s;
         }
