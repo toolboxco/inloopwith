@@ -1,37 +1,43 @@
 .chat {
-	background-image: url("/static/img/chat-bg.png");
-	background-size: cover;
-	background-position: center;
+    background-image: url('/static/img/chat-bg.png');
+    background-size: cover;
+    background-position: center;
 
-	height: 80vh;
-	overflow-y: auto;
-	scrollbar-width: none;
+    height: 80vh;
+    overflow-y: auto;
+    scrollbar-width: none;
 
-	display: flex;
-	flex-direction: column-reverse;
+    display: flex;
+    flex-direction: column-reverse;
 
-	&::-webkit-scrollbar {
-		width: 0;
-	}
+    &::-webkit-scrollbar {
+        width: 0;
+    }
 }
 .wrapper {
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
-	&:first-child {
-		margin-bottom: 5vh;
-	}
+    &:first-child {
+        margin-bottom: 5vh;
+    }
 }
 .dayTitle {
-	align-self: center;
-	padding: 0.25rem 0.5rem;
-	margin: 0.5rem 0;
+    align-self: center;
+    padding: 0.25rem 0.5rem;
+    margin: 0.5rem 0;
 
-	font-weight: 500;
-	text-align: center;
-	text-transform: uppercase;
-	
-	color: white;
-	background-color: #007aff;
-	border-radius: 5px;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: white;
+    background-color: #007aff;
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 768px) {
+    .chat {
+        height: auto;
+    }
 }

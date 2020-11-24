@@ -39,6 +39,7 @@
     float: left;
     margin: 0.5rem 1rem;
     clear: both;
+    word-wrap: break-word;
 
     &::after {
         content: '';

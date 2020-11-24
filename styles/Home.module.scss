@@ -1,13 +1,58 @@
 .main {
-  height: 100vh;
-  display: flex;
-  background: url(/static/img/chat-bg.png);
-  /* flex-wrap: wrap; */
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 1rem;
+    max-width: 1440px;
+}
+
+.nav {
+    max-width: 1440px;
+
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+    padding: 2rem 5rem;
+
+    .brandTitle {
+        font-weight: 700;
+    }
+
+    button {
+        background-color: black;
+
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 0.5rem 0.75rem;
+
+        a {
+            color: white;
+            font-weight: 700;
+        }
+
+        &:hover {
+            background-color: white;
+            a {
+                color: black;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .nav {
+        padding: 2rem;
+    }
+    .main {
+        height: auto;
+        flex-direction: column;
+    }
 }
 
 @media only screen and (max-width: 768px) {
-  .main {
-    height: auto;
-    flex-direction: column;
-  }
+    .main {
+        height: auto;
+        flex-direction: column-reverse;
+    }
 }

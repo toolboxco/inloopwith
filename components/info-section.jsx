@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/infoSection.module.css';
+import styles from '../styles/infoSection.module.scss';
 
 const InfoSection = () => (
     <div className={styles.infoSection}>
@@ -16,7 +16,6 @@ const InfoSection = () => (
                 excerpts
             </li>
         </ul>
-        <br />
         <h3>⚡️ Schedule</h3>
         <ul>
             <li>
@@ -33,16 +32,16 @@ const InfoSection = () => (
             </li>
             <li>sent 5 days a week (M-F) at 10am IST.</li>
         </ul>
-        <p>
-            <a
-                {...{
-                    href: 'https://chat.whatsapp.com/FLb2EM3MZqbJeZpOuhxluX',
-                }}
-            >
-                Click here
-            </a>
-            {` to join the WhatsApp group.`}
-        </p>
+        <button className={styles.cta}>
+            <strong>
+                <a
+                    {...{
+                        href:
+                            'https://chat.whatsapp.com/FLb2EM3MZqbJeZpOuhxluX',
+                    }}
+                >{`  Join the WhatsApp group`}</a>
+            </strong>
+        </button>
         <br />
         <h3>💯 Pricing</h3>
         <p>

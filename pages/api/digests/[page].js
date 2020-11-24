@@ -7,7 +7,7 @@ const PAGE_SIZE = 2;
 const getDigests = async (pageNumber) => {
     try {
         const response = await axios.get(
-            `${DIGESTS_ENDPOINT}/?sort=feed_date&skip=${
+            `${DIGESTS_ENDPOINT}/?sort=-feed_date&skip=${
                 PAGE_SIZE * pageNumber
             }&limit=${PAGE_SIZE}`,
         );

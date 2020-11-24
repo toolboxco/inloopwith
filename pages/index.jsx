@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import DemoSection from '../components/demo-section';
+import Heading from '../components/heading';
 import InfoSection from '../components/info-section';
+import Testimonials from '../components/Testimonials/testimonials-section';
 import styles from '../styles/Home.module.scss';
 
 export default function Home() {
@@ -10,7 +12,7 @@ export default function Home() {
                 <title>In loop with</title>
                 <link rel="preconnect" href="https://fonts.gstatic.com" />
                 <link
-                    href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&display=swap"
+                    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
                     rel="stylesheet"
                 />
                 <link
@@ -19,10 +21,29 @@ export default function Home() {
                 ></link>
             </Head>
 
+            <header>
+                <nav className={styles.nav}>
+                    <span className={styles.brandTitle}>In loop with</span>
+                    <button>
+                        <strong>
+                            <a
+                                {...{
+                                    href:
+                                        'https://chat.whatsapp.com/FLb2EM3MZqbJeZpOuhxluX',
+                                }}
+                            >{`  Join Now`}</a>
+                        </strong>
+                    </button>
+                </nav>
+                <Heading />
+            </header>
+
             <main className={styles.main}>
                 <InfoSection />
                 <DemoSection />
             </main>
+
+            <Testimonials/>
         </>
     );
 }
