@@ -1,9 +1,7 @@
 .chat {
-    background-image: url('/static/img/chat-bg.png');
-    background-size: cover;
-    background-position: center;
+    z-index: 1;
 
-    height: 80vh;
+    height: 90vh;
     overflow-y: auto;
     scrollbar-width: none;
 

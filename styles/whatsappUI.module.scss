@@ -3,7 +3,12 @@
     display: flex;
     flex-direction: column;
 
+    background-image: url('/static/img/chat-bg.png');
+    background-size: cover;
+    background-position: center;
+
     .statusBar {
+        background-color: white;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -29,6 +34,7 @@
 }
 
 .waHeader {
+    background-color: white;
     display: flex;
     align-items: center;
     padding: 0.125rem 0.25rem;
