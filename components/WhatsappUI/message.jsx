@@ -30,7 +30,7 @@ const Message = (messageData) => {
                     .replace(/_fin_/g, '_fin_<br/>')
                     .replace(/(?<!<br\>)👍/gm, '\n👍')}
             </Markdown>
-            <span>{message.time.format('LT')}</span>
+            <span className={styles.datetime}>{message.time.format('LT')}</span>
         </div>
     );
 };

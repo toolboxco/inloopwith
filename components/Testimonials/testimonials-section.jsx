@@ -4,38 +4,57 @@ import styles from '../../styles/testimonials.module.scss';
 const Testimonials = () => {
     return (
         <section className={styles.testimonials}>
-            <h2>What People are saying</h2>
+            <h2>What you&apos;d be saying soon..</h2>
             <div className={styles.cardsWrapper}>
                 <TestimonialCard
-                    name={'Pranav Ahuja'}
-                    img={'pranav'}
-                    designation={'CEO, Xeno'}
+                    name="Pranav Ahuja"
+                    img="pranav"
+                    designation="CEO, Xeno"
+                    testimonial="The laziest way to stay in the loop about the best product launches & the interesting startup discussions"
+                />
+                <TestimonialCard
+                    name="Ekansh Bansal"
+                    img="ekansh"
+                    designation="Student, Final year Engineering "
+                    testimonial="My habit of checking the phone first thing in the morning finally has a positive outcome!"
+                />
+                <TestimonialCard
+                    name="David Karapetyan"
+                    img="david"
+                    designation="Software Engineer"
                     testimonial={
-                        'The laziest way to stay in the loop about the best product launches & the interesting startup discussions'
+                        "It's a good mix of interesting links and products! I find this better on WhatsApp than on an email."
+                    }
+                />
+
+                <TestimonialCard
+                    name="Priyank Agrawal"
+                    img="priyank"
+                    designation="Cofounder at Cutshort"
+                    testimonial="There's too much content & too little time. Inloopwith perfectly curates the most important stuff for me!"
+                />
+                <TestimonialCard
+                    name="Mohit Chitlangia"
+                    img="mohit"
+                    designation="Director, Product at Jupiter"
+                    testimonial={
+                        "Can't think of a better way to deliver this! The headlines and the summary do the job so well."
                     }
                 />
                 <TestimonialCard
-                    name={'Ekansh Bansal'}
-                    img={'ekansh'}
-                    designation={'4th year B.Tech IIIT-A'}
-                    testimonial={
-                        'My habit of checking the phone first thing in the morning finally has a positive outcome!'
-                    }
-                />
-                <TestimonialCard
-                    name={'Mohit Chitlangia'}
-                    img={'mohit'}
-                    designation={'Director of Product Management, Jupiter'}
-                    testimonial={
-                        "I love PH updates. I don't consume a lot of Hacker News - but the headlines and the summary do the job. Can't think of a better way to deliver this!"
-                    }
-                />
-                <TestimonialCard
-                    name={'Rohit Jindal,'}
-                    img={'rohit'}
-                    designation={'Senior Software Engineer, Flipkart'}
+                    name="Rohit Jindal"
+                    img="rohit"
+                    designation="Senior Software Engineer, Flipkart"
                     testimonial={
                         "To the point! It's a morning coffee refresher for me"
+                    }
+                />
+                <TestimonialCard
+                    name="Praveen Kumar"
+                    img="praveen"
+                    designation="Founder at apnerve labs"
+                    testimonial={
+                        'I kinda start my day with it. It sets me into the "zone" easily'
                     }
                 />
             </div>

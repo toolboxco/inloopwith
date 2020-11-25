@@ -8,11 +8,11 @@ import ArrowDownIcon from '../assets/arrow-down.svg';
 const DemoSection = () => (
     <div className={styles.demoSection}>
         <div className={styles.demoInfo}>
-            <h2>Get updates directly on your Whatsapp </h2>
+            <h2>Get updates directly on your WhatsApp</h2>
             <ArrowDownIcon />
         </div>
 
-        <div className={styles.blur}></div>
+        <div className={styles.blur} />
         <IphoneFrame>
             <WhatsappUI />
         </IphoneFrame>
