@@ -7,7 +7,7 @@ const TextTransition = dynamic(() => import('react-text-transition'), {
 
 import styles from '../styles/heading.module.scss';
 
-const TEXTS = ['HackerNews thread', 'Product Launch'];
+const TEXTS = ['Hacker News thread', 'Product Hunt Launch'];
 
 const Heading = () => {
     const [index, setIndex] = useState(0);
@@ -15,7 +15,7 @@ const Heading = () => {
     useEffect(() => {
         const intervalId = setInterval(
             () => setIndex((index) => index + 1),
-            4000,
+            5000,
         );
         return () => clearInterval(intervalId);
     }, []);
@@ -25,7 +25,7 @@ const Heading = () => {
             Never miss a top
             <TextTransition
                 text={TEXTS[index % TEXTS.length]}
-                springConfig={{ mass: 1, tension: 280, friction: 60 }}
+                springConfig={{ mass: 1, tension: 280, friction: 100 }}
                 className={styles.animated}
                 inline
                 noOverflow
