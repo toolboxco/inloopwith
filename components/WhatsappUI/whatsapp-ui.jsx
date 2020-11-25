@@ -1,4 +1,4 @@
-import dayjs from 'dayjs'
+import dayjs from 'dayjs';
 
 import styles from '../../styles/whatsappUI.module.scss';
 import NetworkIcon from '../../assets/network.svg';
@@ -9,12 +9,12 @@ import PhoneIcon from '../../assets/phone.svg';
 import Chat from './chat';
 
 const WhatsappUI = () => {
-    
-
     return (
         <div className={styles.whatsappUI}>
             <div className={styles.statusBar}>
-    <div className={styles.time}>{dayjs(new Date()).format('HH.mm')}</div>
+                <div className={styles.time}>
+                    {dayjs(new Date()).format('HH.mm')}
+                </div>
                 <div className={styles.icons}>
                     <NetworkIcon />
                     <WifiIcon />

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import Sticky from 'react-sticky-el';
 import dayjs from 'dayjs';
 import isToday from 'dayjs/plugin/isToday';
 import isYesterday from 'dayjs/plugin/isYesterday';
@@ -35,7 +36,7 @@ const Chat = () => {
                         img: digest.items[0].image || null,
                         header: `${
                             digest.items[0].name !== undefined
-                                ? digest.items[0].name + ' -'
+                                ? `${digest.items[0].name} -`
                                 : ' '
                         } ${digest.items[0].title} | ${digest.tag
                             .split('_')
@@ -46,7 +47,16 @@ const Chat = () => {
                     },
                 }));
 
-                setMessageList([...messageList].concat(messages));
+                const datePill = dayjs(new Date(data.digests[0].feed_date));
+
+                setMessageList([
+                    ...messageList,
+                    ...messages,
+                    {
+                        type: 'DAY_PILL',
+                        date: datePill,
+                    },
+                ]);
                 setPage((page) => page + 1);
                 if (!data.digests.length) {
                     setHasMore(false);
@@ -86,21 +96,39 @@ const Chat = () => {
                 scrollableTarget="scrollableDiv"
             >
                 {messageList.map((message, index) => {
-                    const nextDate = messageList[index + 1]?.time;
-                    return (
-                        <div className={styles.wrapper} key={index}>
-                            {!nextDate?.isSame(message.time) && (
-                                <div
-                                    className={styles.dayTitle}
-                                    ref={
-                                        message.time.isToday()
-                                            ? todayTitleRef
-                                            : null
-                                    }
+                    // const nextDate = messageList[index + 1]?.time;
+                    if (message.type === 'DAY_PILL') {
+                        return (
+                            <div
+                                className={styles.wrapper}
+                                key={dayParser(message.date)}
+                            >
+                                <Sticky
+                                    scrollElement="#scrollableDiv"
+                                    positionRecheckInterval={250}
+                                    stickyStyle={{ zIndex: 1000 - index }}
                                 >
-                                    {dayParser(message.time)}
-                                </div>
-                            )}
+                                    <div
+                                        className={styles.dayTitle}
+                                        ref={
+                                            message.date.isToday()
+                                                ? todayTitleRef
+                                                : null
+                                        }
+                                    >
+                                        {dayParser(message.date)}
+                                    </div>
+                                </Sticky>
+                            </div>
+                        );
+                    }
+
+                    return (
+                        <div
+                            className={styles.wrapper}
+                            // eslint-disable-next-line react/no-array-index-key
+                            key={`${dayParser(message.time)}_message_${index}`}
+                        >
                             <Message message={message} />
                         </div>
                     );
