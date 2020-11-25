@@ -20,19 +20,18 @@
 }
 .dayTitle {
     align-self: center;
-    padding: 0.25rem 0.5rem;
-    margin: 0.5rem auto;
+    padding: 5px 12px 6px;
+    margin: 0.25rem auto 0;
 
     font-weight: 500;
     text-align: center;
     text-transform: uppercase;
 
-    color: white;
+    color: #f3f2f2fe;
     background-color: #007aff;
-    border-radius: 5px;
+    border-radius: 7.5px;
 
-    width: 100px;
-    max-width: 150px;
+    width: 5rem;
 }
 
 @media only screen and (max-width: 768px) {
