@@ -57,6 +57,12 @@ const Testimonials = () => {
                         'I kinda start my day with it. It sets me into the "zone" easily'
                     }
                 />
+                <TestimonialCard
+                    name="Himanshu Dixit"
+                    img="himanshu"
+                    designation="Hacker, headout, crusher.dev"
+                    testimonial="Saves me full 30mins of random every day stumbling on PH and HN!"
+                />
             </div>
         </section>
     );

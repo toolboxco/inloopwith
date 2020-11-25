@@ -12,6 +12,7 @@
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     padding: 2rem 5rem;
 
@@ -42,7 +43,16 @@
 
 @media only screen and (max-width: 1000px) {
     .nav {
+        transition: all 0.1s;
         padding: 2rem;
+    }
+    .navSticky {
+        z-index: 10000;
+        box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
+
+        .nav {
+            padding: 0.5rem 2rem;
+        }
     }
     .main {
         height: auto;
@@ -51,8 +61,34 @@
 }
 
 @media only screen and (max-width: 768px) {
+    .nav {
+        background: #fff;
+    }
     .main {
         height: auto;
         flex-direction: column-reverse;
+    }
+}
+
+.footer {
+    text-align: center;
+    color: #aaaaaa;
+    padding: 1rem;
+}
+
+.nav .cta {
+    background-color: var(--theme-red);
+    border: 1px solid var(--theme-red);
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+
+    &:hover {
+        background-color: white;
+        a {
+            color: #d8274c;
+        }
     }
 }

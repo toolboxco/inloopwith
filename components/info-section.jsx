@@ -37,24 +37,20 @@ const InfoSection = () => (
                 </li>
             </ul>
         </div>
-        <div style={{ marginBottom: '2rem' }}>
+        <div id="pricing" style={{ marginBottom: '2rem' }}>
             <h3>Pricing</h3>
             <p>
-                ⚡️ Cyber week offer —{' '}
-                <span style={{ textDecoration: 'line-through' }}>$25/year</span>{' '}
-                <strong>only $9/year</strong>!<br /> (that&apos;s right — per
+                ⚡️ Cyber week offer — <br />
+                <span style={{ textDecoration: 'line-through' }}>
+                    $25/year
+                </span>{' '}
+                <strong>only $9/year</strong>! (that&apos;s right — per
                 &ldquo;year&rdquo;) <br />{' '}
-                <i>Offer valid until 30th Nov 2020.</i>
             </p>
             <div>
                 <button type="button" className={styles.cta}>
                     <strong>
-                        <a
-                            {...{
-                                href:
-                                    'https://www.buymeacoffee.com/aakashgoel/e/11075',
-                            }}
-                        >
+                        <a href="https://www.buymeacoffee.com/aakashgoel/e/11075">
                             I want this!
                         </a>
                     </strong>
@@ -76,17 +72,8 @@ const InfoSection = () => (
             <a href="https://aakashgoel.me" target="_blank" rel="noreferrer">
                 Aakash Goel
             </a>
-            . I&apos;m on a quest to reclaim my time from &ldquo;feeds&rdquo;. I
-            follow exactly 0 people on{' '}
-            <a
-                href="https://twitter.com/aakashlpin"
-                target="_blank"
-                rel="noreferrer"
-            >
-                Twitter
-            </a>
-            . I built this to stop frequenting Hacker News and Product Hunt
-            several times a day like an addict. Join in to de-addict.
+            . This product is an effort to reclaim my time from
+            &ldquo;feeds&rdquo;. Join in! 💪🏽
         </p>
     </div>
 );
