@@ -31,7 +31,7 @@ const Message = (messageData) => {
                     .replace(boldRegex, '<strong>$1</strong>')
                     .replace(listRegex, `$1\\.&nbsp;`)
                     .replace(/_fin_/g, '_fin_<br/>')
-                    .replace(/(?<!<br\>)👍/gm, '\n👍&nbsp;')
+                    .replace(/(?!<br\>)👍/gm, '\n👍&nbsp;')
                     .replace(/💬/g, '💬&nbsp;')}
             </Markdown>
             <span className={styles.datetime}>{message.time.format('LT')}</span>
