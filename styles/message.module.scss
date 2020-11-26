@@ -22,9 +22,14 @@
         align-self: center;
     }
 
-    img {
-        width: 28%;
+    span {
+        display: inline-block;
+        max-width: 28%;
+        width: 100%;
         height: auto;
+
+        background-size: cover;
+        background-position: center;
     }
 }
 
