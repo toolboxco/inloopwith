@@ -38,7 +38,7 @@ const InfoSection = () => (
             </ul>
         </div>
         <div id="pricing" style={{ marginBottom: '2rem' }}>
-            <h3>Pricing</h3>
+            <h3 style={{ marginBottom: '1rem' }}>Pricing</h3>
             <p>
                 ⚡️ Cyber week offer — <br />
                 <span style={{ textDecoration: 'line-through' }}>
