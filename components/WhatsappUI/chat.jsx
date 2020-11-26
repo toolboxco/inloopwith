@@ -19,7 +19,6 @@ const Chat = () => {
     const [messageList, setMessageList] = useState([]);
     const [hasMore, setHasMore] = useState(true);
     const [page, setPage] = useState(0);
-    const todayTitleRef = useRef(null);
 
     const fetchData = async (pageNumber) => {
         const response = await fetch(`/api/digests/${pageNumber}`);
@@ -68,15 +67,6 @@ const Chat = () => {
         fetchMoreDataAndParse();
     }, []);
 
-    useEffect(() => {
-        if (todayTitleRef.current) {
-            todayTitleRef.current.scrollIntoView({
-                behavior: 'smooth',
-                block: 'nearest',
-            });
-        }
-    }, [todayTitleRef.current]);
-
     return (
         <div className={styles.chat} id="scrollableDiv">
             <InfiniteScroll
@@ -108,14 +98,7 @@ const Chat = () => {
                                     positionRecheckInterval={250}
                                     stickyStyle={{ zIndex: 1000 - index }}
                                 >
-                                    <div
-                                        className={styles.dayTitle}
-                                        ref={
-                                            message.date.isToday()
-                                                ? todayTitleRef
-                                                : null
-                                        }
-                                    >
+                                    <div className={styles.dayTitle}>
                                         {dayParser(message.date)}
                                     </div>
                                 </Sticky>

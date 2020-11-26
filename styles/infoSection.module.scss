@@ -24,6 +24,7 @@
 }
 
 .infoSection .cta {
+    display: inline-block;
     padding: 0.75rem 1rem;
     background-color: var(--theme-red);
     font-family: 'Poppins';
@@ -32,18 +33,14 @@
     border: 1px solid var(--theme-red);
     margin: 1rem 0;
 
-    a {
-        text-decoration: none;
-        color: white;
-        font-size: 1rem;
-        font-weight: 700;
-    }
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
 
     &:hover {
         background-color: white;
-        a {
-            color: #d8274c;
-        }
+        color: #d8274c;
     }
 }
 

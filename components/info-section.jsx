@@ -48,13 +48,15 @@ const InfoSection = () => (
                 &ldquo;year&rdquo;) <br />{' '}
             </p>
             <div>
-                <button type="button" className={styles.cta}>
-                    <strong>
-                        <a href="https://www.buymeacoffee.com/aakashgoel/e/11075">
-                            I want this!
-                        </a>
-                    </strong>
-                </button>
+                <strong>
+                    <a
+                        className={styles.cta}
+                        type="button"
+                        href="https://www.buymeacoffee.com/aakashgoel/e/11075"
+                    >
+                        I want this!
+                    </a>
+                </strong>
             </div>
 
             <p>
