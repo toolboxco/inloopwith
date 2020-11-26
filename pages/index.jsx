@@ -32,13 +32,13 @@ export default function Home() {
                 >
                     <nav className={styles.nav}>
                         <span className={styles.brandTitle}>In loop with</span>
-                        <button type="button" className={styles.cta}>
-                            <strong>
-                                <a href="https://www.buymeacoffee.com/aakashgoel/e/11075">
-                                    I want this!
-                                </a>
-                            </strong>
-                        </button>
+                        <a
+                            type="button"
+                            className={styles.cta}
+                            href="https://www.buymeacoffee.com/aakashgoel/e/11075"
+                        >
+                            <strong>I want this!</strong>
+                        </a>
                     </nav>
                 </Sticky>
                 <Heading />

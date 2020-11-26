@@ -20,22 +20,25 @@
         font-weight: 700;
     }
 
-    button {
-        background-color: black;
-
-        border: 1px solid black;
+    .cta {
+        background-color: var(--theme-red);
+        border: 1px solid var(--theme-red);
         border-radius: 10px;
-        padding: 0.5rem 0.75rem;
+        padding: 0.45rem 0.75rem;
 
-        a {
+        text-decoration: none;
+        font-size: 0.75rem;
+        font-weight: 600;
+
+        strong {
             color: white;
             font-weight: 700;
         }
 
         &:hover {
             background-color: white;
-            a {
-                color: black;
+            strong {
+                color: #d8274c;
             }
         }
     }
@@ -48,7 +51,7 @@
     }
     .navSticky {
         z-index: 10000;
-        box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
 
         .nav {
             padding: 0.5rem 2rem;
@@ -74,21 +77,4 @@
     text-align: center;
     color: #aaaaaa;
     padding: 1rem;
-}
-
-.nav .cta {
-    background-color: var(--theme-red);
-    border: 1px solid var(--theme-red);
-
-    a {
-        text-decoration: none;
-        color: white;
-    }
-
-    &:hover {
-        background-color: white;
-        a {
-            color: #d8274c;
-        }
-    }
 }
