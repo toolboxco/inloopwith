@@ -4,7 +4,7 @@ import Markdown from 'markdown-to-jsx';
 import styles from '../../styles/message.module.scss';
 
 const boldRegex = /\*(.*?)\*/g;
-const listRegex = /(?!:\d)\.\s/g;
+const listRegex = /(\d)(\.)\s/g;
 
 const Message = (messageData) => {
     const { message } = messageData;
@@ -29,7 +29,7 @@ const Message = (messageData) => {
             <Markdown>
                 {message.post
                     .replace(boldRegex, '<strong>$1</strong>')
-                    .replace(listRegex, `\\.&nbsp;`)
+                    .replace(listRegex, `$1\\.&nbsp;`)
                     .replace(/_fin_/g, '_fin_<br/>')
                     .replace(/(?<!<br\>)👍/gm, '\n👍&nbsp;')
                     .replace(/💬/g, '💬&nbsp;')}
