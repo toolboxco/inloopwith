@@ -2,10 +2,9 @@ import Link from 'next/link';
 import Markdown from 'markdown-to-jsx';
 
 import styles from '../../styles/message.module.scss';
-import { urlObjectKeys } from 'next/dist/next-server/lib/utils';
 
 const boldRegex = /\*(.*?)\*/g;
-const listRegex = /(?<=\d)\.\s/gm;
+const listRegex = /(?!:\d)\.\s/g;
 
 const Message = (messageData) => {
     const { message } = messageData;
