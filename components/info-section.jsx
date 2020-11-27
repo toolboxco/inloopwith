@@ -43,7 +43,6 @@ const InfoSection = () => (
                 <strong>
                     <a
                         className={styles.cta}
-                        type="button"
                         href="https://chat.whatsapp.com/FLb2EM3MZqbJeZpOuhxluX"
                     >
                         I want this!

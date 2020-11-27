@@ -21,6 +21,8 @@
     }
 
     .cta {
+        display: inline-block;
+
         background-color: var(--theme-red);
         border: 1px solid var(--theme-red);
         border-radius: 10px;

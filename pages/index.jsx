@@ -33,7 +33,6 @@ export default function Home() {
                     <nav className={styles.nav}>
                         <span className={styles.brandTitle}>Inloop</span>
                         <a
-                            type="button"
                             className={styles.cta}
                             href="https://chat.whatsapp.com/FLb2EM3MZqbJeZpOuhxluX"
                         >
