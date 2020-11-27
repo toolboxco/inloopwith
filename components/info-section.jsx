@@ -46,7 +46,7 @@ const InfoSection = () => (
                         type="button"
                         href="https://chat.whatsapp.com/FLb2EM3MZqbJeZpOuhxluX"
                     >
-                        Claim your FREE Access!
+                        I want this!
                     </a>
                 </strong>
             </div>
