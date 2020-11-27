@@ -10,7 +10,7 @@ export default function Home() {
     return (
         <>
             <Head>
-                <title>In loop with</title>
+                <title>In loop</title>
                 <link rel="preconnect" href="https://fonts.gstatic.com" />
                 <link
                     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
@@ -31,7 +31,7 @@ export default function Home() {
                     stickyClassName={styles.navSticky}
                 >
                     <nav className={styles.nav}>
-                        <span className={styles.brandTitle}>In loop with</span>
+                        <span className={styles.brandTitle}>Inloop</span>
                         <a
                             type="button"
                             className={styles.cta}

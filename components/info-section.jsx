@@ -8,7 +8,7 @@ const InfoSection = () => (
             <p>
                 {`a `}
                 <strong>beautiful WhatsApp digest</strong>
-                {` with links and excerpts from the Internet's most popular tech sources. This daily digest consists of  —`}
+                {` with links and excerpts from the 2 most popular tech sources on the Internet. This daily digest consists of  —`}
             </p>
             <ul>
                 <li>top 5 product launches from Product Hunt, and</li>
