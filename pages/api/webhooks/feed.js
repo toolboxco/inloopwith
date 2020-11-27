@@ -1,7 +1,8 @@
 import axios from 'axios';
-import generateWhatsappPost from '../../../src/generatePost';
 
-const { INLOOPWITH_API_KEY, DIGESTS_ENDPOINT, WA_URL } = process.env;
+const { INLOOPWITH_API_KEY, DIGESTS_ENDPOINT, DEPLOY_URL } = process.env;
+
+const API_KEY_HEADER = 'x-ilw-api-key';
 
 const saveDigestToJsonBox = async (category, payload) => {
     const response = await axios({
@@ -12,68 +13,41 @@ const saveDigestToJsonBox = async (category, payload) => {
     return response.data;
 };
 
-const sendWhatsappMessage = async (payload, path) => {
-    try {
-        const message = generateWhatsappPost(payload);
-        const response = await axios.post(
-            `${WA_URL}/${path}`,
-            {
-                body: message,
-            },
-            {
-                headers: {
-                    'x-ilw-api-key': INLOOPWITH_API_KEY,
-                },
-            },
-        );
-        console.log(response.status === 200 ? '[INFO] Message Sent' : null);
-    } catch (error) {
-        console.log('[Error] Failed sending WA message', error);
-    }
-};
-
 export default async (req, res) => {
     if (req.method !== 'POST') {
         return res.status(404).send('Not found');
     }
 
-    const API_KEY = req.headers['x-ilw-api-key'];
+    const API_KEY = req.headers[API_KEY_HEADER];
     if (INLOOPWITH_API_KEY !== API_KEY) {
         return res.status(401).send('Unauthorized');
     }
 
     const payload = req.body;
-    // console.log(payload);
 
-    if (JSON.stringify(payload) === '{}') {
+    if (!(typeof payload === 'object' && Object.keys(payload).length)) {
         return res.status(400).send({ error: 'Missing body' });
     }
 
-    if (!payload.tag) {
-        return res.status(400).send({ error: 'Missing tag' });
+    if (!['product_hunt', 'hacker_news'].includes(payload.tag)) {
+        return res.status(400).send({ error: 'Incorrect tag' });
     }
 
-    // store this payload to jsonbox collection accordingly
-    if (payload.tag === 'product_hunt') {
-        try {
-            const responseData = await saveDigestToJsonBox('ph', payload);
-            res.json({ message: responseData.message || 'Digest added' });
+    try {
+        const responseData = await saveDigestToJsonBox(
+            payload.tag === 'product_hunt' ? 'ph' : 'hn',
+            payload,
+        );
 
-            // [TODO] bring it back up
-            // sendWhatsappMessage(payload, 'sendText');
-        } catch (error) {
-            console.log(error);
-        }
-    }
+        await axios.post(`${DEPLOY_URL}/api/internal/send-wa`, responseData, {
+            headers: {
+                [API_KEY_HEADER]: INLOOPWITH_API_KEY,
+            },
+        });
 
-    if (payload.tag === 'hacker_news') {
-        try {
-            const responseData = await saveDigestToJsonBox('hn', payload);
-            res.json({ message: responseData.message || 'Digest added' });
-            // [TODO] bring it back up
-            // sendWhatsappMessage(payload, 'sendText');
-        } catch (error) {
-            console.log(error);
-        }
+        return res.json(responseData);
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send(error);
     }
 };
