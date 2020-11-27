@@ -35,7 +35,7 @@ export default function Home() {
                         <a
                             type="button"
                             className={styles.cta}
-                            href="https://www.buymeacoffee.com/aakashgoel/e/11075"
+                            href="https://chat.whatsapp.com/FLb2EM3MZqbJeZpOuhxluX"
                         >
                             <strong>I want this!</strong>
                         </a>

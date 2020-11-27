@@ -21,16 +21,8 @@ const InfoSection = () => (
             <h3>Schedule</h3>
             <ul>
                 <li>
-                    {`newsletter sent as crisp and beautifully crafted `}
-                    <a
-                        {...{
-                            href:
-                                'https://twitter.com/aakashlpin/status/1320767245081952257',
-                        }}
-                    >
-                        WhatsApp posts
-                    </a>
-                    .
+                    digests sent as crisp and beautifully crafted WhatsApp
+                    posts. Check out the WhatsApp window on this page!
                 </li>
                 <li>
                     sent 5 days a week (M-F) by 10am IST (Indian Standard Time).
@@ -40,33 +32,24 @@ const InfoSection = () => (
         <div id="pricing" style={{ marginBottom: '2rem' }}>
             <h3 style={{ marginBottom: '1rem' }}>Pricing</h3>
             <p>
-                ⚡️ Cyber week offer — <br />
-                <span style={{ textDecoration: 'line-through' }}>
-                    $25/year
-                </span>{' '}
-                <strong>only $9/year</strong>! (that&apos;s right — per
-                &ldquo;year&rdquo;) <br />{' '}
+                100% FREE for students, underpaid and/or underrepresented tech
+                groups. For everyone else, you can{' '}
+                <a href="https://www.buymeacoffee.com/aakashgoel">
+                    buy me a coffee
+                </a>{' '}
+                once you find enough value from the digests. No pressure!
             </p>
             <div>
                 <strong>
                     <a
                         className={styles.cta}
                         type="button"
-                        href="https://www.buymeacoffee.com/aakashgoel/e/11075"
+                        href="https://chat.whatsapp.com/FLb2EM3MZqbJeZpOuhxluX"
                     >
                         I want this!
                     </a>
                 </strong>
             </div>
-
-            <p>
-                <i>
-                    <a href="mailto:me@aakashgoel.com">
-                        Student? Get your access for free! Just send me an email
-                        with your phone #
-                    </a>
-                </i>
-            </p>
         </div>
         <h3>Hello,</h3>
         <p>
@@ -75,7 +58,8 @@ const InfoSection = () => (
                 Aakash Goel
             </a>
             . This product is an effort to reclaim my time from
-            &ldquo;feeds&rdquo;. Join in! 💪🏽
+            &ldquo;feeds&rdquo;. Soon enough, you&apos;d be able to personalize
+            and customize this feed with more sources! Join in today! 💪🏽
         </p>
     </div>
 );
