@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import Head from 'next/head';
+import 'normalize.css';
 import { DefaultSeo } from 'next-seo';
 import '../styles/globals.scss';
 import '../styles/iphone-frame.scss';
