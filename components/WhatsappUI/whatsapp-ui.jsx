@@ -26,7 +26,6 @@ const WhatsappUI = () => {
                 <img src="/static/img/logo.png" alt="Inloop logo" />
                 <div>
                     <h2>Inloop</h2>
-                    <sub>+ 1 (416) 877-453, +1 (424) 543-939...</sub>
                 </div>
                 <PhoneIcon />
             </div>
