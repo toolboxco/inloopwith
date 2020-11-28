@@ -26,13 +26,15 @@ const Message = (messageData) => {
                     </div>
                 </div>
             </Link>
-            <Markdown>
+            <Markdown options={{ forceBlock: true }}>
                 {message.post
                     .replace(boldRegex, '<strong>$1</strong>')
                     .replace(listRegex, `$1\\.&nbsp;`)
                     .replace(/_fin_/g, '_fin_<br/>')
-                    .replace(/(?!<br\>)👍/gm, '\n👍&nbsp;')
-                    .replace(/💬/g, '💬&nbsp;')}
+                    .replace(/(\n\n)👍/g, '<br><br>👍&nbsp;')
+                    .replace(/\n👍/g, '<br>👍&nbsp;')
+                    .replace(/💬/g, '💬&nbsp;')
+                    .replace(/\n\n\n/g, '<br><br><br>')}
             </Markdown>
             <span className={styles.datetime}>{message.time.format('LT')}</span>
         </div>
