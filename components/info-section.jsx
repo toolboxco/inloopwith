@@ -35,14 +35,14 @@ const InfoSection = () => (
             <h3 style={{ marginBottom: '1rem' }}>Pricing</h3>
             <p>
                 100% FREE for students, underpaid and/or underrepresented tech
-                groups. <br />
+                groups.
                 <br /> For everyone else, you can{' '}
                 <a href="https://www.buymeacoffee.com/aakashgoel">
                     buy me a coffee
                 </a>{' '}
                 once you find enough value from the digests. No pressure!
             </p>
-            <Cta text="Get In NOW! ✨" />
+            <Cta text="Join on WhatsApp ⚡️" />
         </div>
         <h3>Hello,</h3>
         <p style={{ marginBottom: '1rem' }}>
@@ -51,7 +51,7 @@ const InfoSection = () => (
                 Aakash Goel
             </a>
             . This product is an effort to reclaim my time from
-            &ldquo;feeds&rdquo;. <br />
+            &ldquo;feeds&rdquo;.
             <br />
             Join in NOW and then come say Hi on Product Hunt! 💪🏽
         </p>
