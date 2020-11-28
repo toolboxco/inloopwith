@@ -52,7 +52,7 @@ export default function Home() {
             <Testimonials />
 
             <div className={styles.main}>
-                <Cta text="Click the button already 👉" />
+                <Cta text="Join with WhatsApp ⚡️" />
             </div>
 
             <footer className={styles.footer}>
@@ -62,10 +62,10 @@ export default function Home() {
                 </p>
                 <p className={styles.terms}>
                     <i>
-                        This service is provided under an "as is" condition. It
-                        might change or could be discontinued without any prior
-                        notice. The maker of this service can't be held liable
-                        in any way for any reason.
+                        This service is provided under an &ldquo;as is&rdquo;
+                        condition. It might change or could be discontinued
+                        without any prior notice. The maker of this service
+                        can&apos;t be held liable in any way for any reason.
                     </i>
                 </p>
             </footer>

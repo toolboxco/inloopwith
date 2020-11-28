@@ -1,13 +1,13 @@
 export default {
-    title: 'In loop',
+    title: 'Inloop | Best of tech — Delivered as a WhatsApp DM ',
     description:
-        'Inloop is a beautiful WhatsApp tech digest curating the 2 most popular sources on the Internet.',
+        'Inloop is a WhatsApp tech digest service curating the 2 most popular sources on the Internet.',
     openGraph: {
         type: 'website',
         url: 'https://inloopwith.xyz',
         title: 'In loop',
         description:
-            'Inloop is a beautiful WhatsApp tech digest curating the 2 most popular sources on the Internet.',
+            'Inloop is a WhatsApp tech digest service curating the 2 most popular sources on the Internet.',
         images: [
             {
                 url:

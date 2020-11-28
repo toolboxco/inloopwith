@@ -42,7 +42,7 @@ const InfoSection = () => (
                 </a>{' '}
                 once you find enough value from the digests. No pressure!
             </p>
-            <Cta text="Join on WhatsApp ⚡️" />
+            <Cta text="Join with WhatsApp ⚡️" />
         </div>
         <h3>Hello,</h3>
         <p style={{ marginBottom: '1rem' }}>
