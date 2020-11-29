@@ -1,14 +1,14 @@
 const dayjs = require('dayjs');
 
 const productHuntContentHeader = (humanDate) =>
-    [`🦄 *Product Hunt Digest | ${humanDate}*`].join('\n');
+    [`🦄  *Product Hunt Digest | ${humanDate}*`].join('\n');
 
 const hackerNewsContentHeader = (humanDate) =>
     [`⚡️ *Hacker News Digest | ${humanDate}*`].join('\n');
 
 const contentFooter = [
     '_fin_',
-    `Feedback and ❤️ always appreciated! Have a great day ahead ✨`,
+    `⏩ Know someone who'd like this digest? Forward this message! https://bit.ly/joininloop`,
 ].join('\n');
 
 const generateWhatsappPost = (payload) => {
