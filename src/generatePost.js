@@ -8,7 +8,7 @@ const hackerNewsContentHeader = (humanDate) =>
 
 const contentFooter = [
     '_fin_',
-    `⏩ Know someone who'd like this digest? Forward this message! https://bit.ly/joininloop`,
+    `⏩  Know someone who'd like this digest? Forward this! Join Inloop — https://bit.ly/joininloop`,
 ].join('\n');
 
 const generateWhatsappPost = (payload) => {
