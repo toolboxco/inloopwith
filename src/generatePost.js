@@ -1,10 +1,12 @@
 const dayjs = require('dayjs');
 
-const productHuntContentHeader = (humanDate) =>
-    [`🦄  *Product Hunt Digest | ${humanDate}*`].join('\n');
+const startDate = dayjs('2020-10-25');
 
-const hackerNewsContentHeader = (humanDate) =>
-    [`⚡️ *Hacker News Digest | ${humanDate}*`].join('\n');
+const productHuntContentHeader = (inloopEdition) =>
+    [`⚡️ Inloop #${inloopEdition} — *Product Hunt*`].join('\n');
+
+const hackerNewsContentHeader = (inloopEdition) =>
+    [`⚡️ Inloop #${inloopEdition} — *Technology*`].join('\n');
 
 const contentFooter = [
     '_fin_',
@@ -12,13 +14,14 @@ const contentFooter = [
 ].join('\n');
 
 const generateWhatsappPost = (payload) => {
-    const humanDate = dayjs(new Date(payload.feed_date)).format('DD MMM YY');
+    const feedDate = dayjs(new Date(payload.feed_date));
+    const inloopEdition = feedDate.diff(startDate, 'day');
     let contentHeader;
     if (payload.tag === 'product_hunt') {
-        contentHeader = productHuntContentHeader(humanDate);
+        contentHeader = productHuntContentHeader(inloopEdition);
     }
     if (payload.tag === 'hacker_news') {
-        contentHeader = hackerNewsContentHeader(humanDate);
+        contentHeader = hackerNewsContentHeader(inloopEdition);
     }
 
     if (!payload.items.length) {
