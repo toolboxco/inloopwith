@@ -4,7 +4,7 @@ import styles from '../../styles/testimonials.module.scss';
 const Testimonials = () => {
     return (
         <section className={styles.testimonials}>
-            <h2>What you&apos;d be saying soon..</h2>
+            <h2>We&apos;re only 1 month old 🎂</h2>
             <div className={styles.cardsWrapper}>
                 <TestimonialCard
                     name="Pranav Ahuja"

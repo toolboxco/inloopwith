@@ -46,6 +46,18 @@
     }
 }
 
+.footer {
+    text-align: center;
+    color: #aaaaaa;
+    padding: 1rem;
+    font-size: 10px;
+
+    .terms {
+        width: 600px;
+        margin: 0 auto;
+    }
+}
+
 @media only screen and (max-width: 1000px) {
     .nav {
         transition: all 0.1s;
@@ -73,10 +85,10 @@
         height: auto;
         flex-direction: column-reverse;
     }
-}
 
-.footer {
-    text-align: center;
-    color: #aaaaaa;
-    padding: 1rem;
+    .footer {
+        .terms {
+            max-width: 100%;
+        }
+    }
 }

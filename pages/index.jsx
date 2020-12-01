@@ -3,6 +3,7 @@ import Sticky from 'react-sticky-el';
 import DemoSection from '../components/demo-section';
 import Heading from '../components/heading';
 import InfoSection from '../components/info-section';
+import Cta from '../components/cta';
 import Testimonials from '../components/Testimonials/testimonials-section';
 import styles from '../styles/Home.module.scss';
 
@@ -10,7 +11,6 @@ export default function Home() {
     return (
         <>
             <Head>
-                <title>In loop</title>
                 <link rel="preconnect" href="https://fonts.gstatic.com" />
                 <link
                     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
@@ -36,7 +36,7 @@ export default function Home() {
                             className={styles.cta}
                             href="https://chat.whatsapp.com/FLb2EM3MZqbJeZpOuhxluX"
                         >
-                            <strong>I want this!</strong>
+                            <strong>Join group ⚡️</strong>
                         </a>
                     </nav>
                 </Sticky>
@@ -50,7 +50,24 @@ export default function Home() {
 
             <Testimonials />
 
-            <footer className={styles.footer}>&copy; toolbox co 2020</footer>
+            <div className={styles.main}>
+                <Cta text="Join with WhatsApp ⚡️" />
+            </div>
+
+            <footer className={styles.footer}>
+                <p>
+                    &copy; toolbox co 2020{' '}
+                    <a href="mailto:me@aakashgoel.com">Contact</a>{' '}
+                </p>
+                <p className={styles.terms}>
+                    <i>
+                        This service is provided under an &ldquo;as is&rdquo;
+                        condition. It might change or could be discontinued
+                        without any prior notice. The maker of this service
+                        can&apos;t be held liable in any way for any reason.
+                    </i>
+                </p>
+            </footer>
         </>
     );
 }

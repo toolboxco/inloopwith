@@ -8,7 +8,7 @@ import ArrowDownIcon from '../assets/arrow-down.svg';
 const DemoSection = () => (
     <div className={styles.demoSection}>
         <div className={styles.demoInfo}>
-            <h2>Get updates directly on your WhatsApp</h2>
+            <h2>Every single digest we&apos;ve ever sent</h2>
             <ArrowDownIcon />
         </div>
 
