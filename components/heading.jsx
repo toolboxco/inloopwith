@@ -7,7 +7,13 @@ const TextTransition = dynamic(() => import('react-text-transition'), {
     ssr: false,
 });
 
-const TEXTS = ['Hacker News thread', 'Product Hunt Launch'];
+const TEXTS = [
+    'Hacker News thread',
+    'Product Hunt Launch',
+    '/r/worldnews thread',
+    '/r/technology thread',
+    '/r/Futurology thread',
+];
 
 const Heading = () => {
     const [index, setIndex] = useState(0);
@@ -15,7 +21,7 @@ const Heading = () => {
     useEffect(() => {
         const intervalId = setInterval(
             () => setIndex((index) => index + 1),
-            5000,
+            3000,
         );
         return () => clearInterval(intervalId);
     }, []);

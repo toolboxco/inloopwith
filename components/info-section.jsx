@@ -12,13 +12,14 @@ const InfoSection = () => (
             <p>
                 {`a `}
                 <strong>beautiful WhatsApp digest</strong>
-                {` with links and excerpts from the 2 most popular tech sources on the Internet. This daily digest consists of  —`}
+                {` with links and excerpts from the most popular sources on the Internet. This daily digest consists of 10 items  —`}
             </p>
             <ul>
-                <li>top 5 product launches from Product Hunt, and</li>
-                <li>
-                    upto 10 Hacker News threads — at least 100 upvotes or above
-                </li>
+                <li>top 3 product launches from Product Hunt</li>
+                <li>top 4 Hacker News threads</li>
+                <li>#1 from /r/technology</li>
+                <li>#1 from /r/Futurology</li>
+                <li>#1 from /r/worldnews</li>
             </ul>
         </div>
         <div style={{ marginBottom: '2rem' }}>
