@@ -2,27 +2,40 @@ const dayjs = require('dayjs');
 
 const startDate = dayjs('2020-10-25');
 
-const productHuntContentHeader = (inloopEdition) =>
-    [`⚡️ Inloop #${inloopEdition} — *Product Hunt*`].join('\n');
-
-const hackerNewsContentHeader = (inloopEdition) =>
-    [`⚡️ Inloop #${inloopEdition} — *Technology*`].join('\n');
+const getHeader = (inloopEdition) =>
+    [`⚡️ Inloop Digest #${inloopEdition}`].join('\n');
 
 const contentFooter = [
     '_fin_',
-    `⏩  Know someone who'd like this digest? Forward this! Join Inloop — https://bit.ly/joininloop`,
+    `⏩  Know someone who'd like this digest? Forward it!\n`,
+    `_https://bit.ly/joininloop | https://inloopwith.xyz_`,
 ].join('\n');
+
+const limitWords = (sentence, words) => {
+    const newSentence = sentence
+        .replace(/\s+/g, ' ')
+        .split(' ')
+        .slice(0, words)
+        .join(' ');
+
+    if (sentence.length !== newSentence.length) {
+        return `${newSentence}...`;
+    }
+    return newSentence;
+};
+
+const tagMap = {
+    r_worldnews: 'r/worldnews',
+    r_futurology: 'r/futurology',
+    product_hunt: 'Product hunt',
+    hacker_news: 'Hacker news',
+    r_technology: 'r/technology',
+};
 
 const generateWhatsappPost = (payload) => {
     const feedDate = dayjs(new Date(payload.feed_date));
     const inloopEdition = feedDate.diff(startDate, 'day');
-    let contentHeader;
-    if (payload.tag === 'product_hunt') {
-        contentHeader = productHuntContentHeader(inloopEdition);
-    }
-    if (payload.tag === 'hacker_news') {
-        contentHeader = hackerNewsContentHeader(inloopEdition);
-    }
+    const contentHeader = getHeader(inloopEdition);
 
     if (!payload.items.length) {
         throw new Error('No items in payload');
@@ -31,23 +44,23 @@ const generateWhatsappPost = (payload) => {
     const contentBody = payload.items
         .map((item, idx) => {
             return [
-                payload.tag === 'product_hunt'
+                item.name
                     ? `${idx + 1}. *${item.name}* - ${item.title}`
                     : `${idx + 1}. *${item.title}*`,
 
-                item.description && `\n_${item.description}_`,
+                item.description &&
+                    `\n\n➡️ _${limitWords(item.description, 32)}_`,
 
-                `👍 ${item.upvotes_count} | 💬 ${item.comments_count} | ${
+                `\n👍 ${item.upvotes_count} | ${tagMap[item.tag]} · ${
                     item.short_link || item.original_link
                 }`,
-            ].join('\n');
+            ].join('');
         })
         .join('\n\n\n');
 
     const whatsappPost = [contentHeader, contentBody, contentFooter].join(
         '\n\n',
     );
-    // console.log(whatsappPost)
     return whatsappPost;
 };
 

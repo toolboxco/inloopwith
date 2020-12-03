@@ -1,8 +1,8 @@
 import axios from 'axios';
-import { Promise } from 'bluebird';
 import generateWhatsappPost from '../../../src/generatePost';
+import createDigestItems from '../../../src/utils/createDigestItems';
 
-const { INLOOPWITH_API_KEY, DIGESTS_ENDPOINT, WA_URL } = process.env;
+const { INLOOPWITH_API_KEY, DEPLOY_URL, WA_URL } = process.env;
 const API_KEY_HEADER = 'x-ilw-api-key';
 
 const sendWhatsappMessage = async (payload, path = '/sendText') => {
@@ -36,25 +36,19 @@ export default async function handle(req, res) {
         return res.status(401).send('Unauthorized');
     }
 
-    if (req.body?._id) {
-        // automated message sending
-        try {
-            await sendWhatsappMessage(req.body);
-            return res.json({ status: 'ok' });
-        } catch (e) {
-            return res.status(500).send(e);
-        }
-    }
-
-    // manually triggerable - sends last 2 entries as WA posts
+    // manually triggerable - picks up the latest digest
     // assuming that data entry has successfully happened
     try {
-        const { data } = await axios(
-            `${DIGESTS_ENDPOINT}?sort=-feed_date&limit=2`,
-        );
-
-        await Promise.mapSeries(data, async (item) => {
-            await sendWhatsappMessage(item);
+        const { data } = await axios(`${DEPLOY_URL}/api/digests`);
+        const { digests } = data;
+        if (!digests.length) {
+            return res.json({ status: 'no digest found!' });
+        }
+        const digestDate = digests[0];
+        const digestItems = createDigestItems(digests);
+        await sendWhatsappMessage({
+            feed_date: digestDate.feed_date,
+            items: digestItems,
         });
         return res.json({ status: 'ok' });
     } catch (e) {
